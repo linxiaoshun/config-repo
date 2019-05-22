@@ -1,4 +1,4 @@
-env: dev
+env: test
 spring:
   application:
     name: order
@@ -14,5 +14,4 @@ spring:
     port: 5672
     username: guest
     password: guest
-env:
-  test
+
