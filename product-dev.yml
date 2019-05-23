@@ -1,0 +1,16 @@
+env: dev
+spring:
+  application:
+    name: product
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/springcloud_sell?characterEncoding=utf-8&useSSL=false
+    username: root
+  jpa:
+    show-sql: true
+  rabbitmq:
+    host: 192.168.43.60
+    port: 5672
+    username: guest
+    password: guest
