@@ -1,7 +1,7 @@
 env: dev
 spring:
   application:
-    name: product
+    name: order
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: root
@@ -9,8 +9,38 @@ spring:
     username: root
   jpa:
     show-sql: true
+  zipkin:
+    base-url: http://192.168.43.60:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1
   rabbitmq:
     host: 192.168.43.60
     port: 5672
     username: guest
     password: guest
+  redis:
+    host: 192.168.43.60
+    port: 6379
+feign:
+#  hystrix:
+#    enabled: true
+  client:
+    config:
+      default:
+        connect-timeout: 20000
+        read-timeout: 20000
+        loggerLevel: basic
+# 旧版熔断默认超时配置
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
