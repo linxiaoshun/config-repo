@@ -1,10 +1,11 @@
 zuul:
   routes:
+  # 更改访问的服务名前缀
     aaaa:
       path: /myProduct/**
       serverId: product
       sensitiveHeaders:
-#    product: /myProduct/**
+#    product: /myProduct/** 简写方式
   ignored-patterns:
     - /**/product/listForOrder
 # 使用指定服务ip地址的超时配置
@@ -15,6 +16,7 @@ zuul:
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
+# 查看使用的所有路由
 management:
   endpoints:
     web:
