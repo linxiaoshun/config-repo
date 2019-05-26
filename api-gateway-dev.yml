@@ -1,7 +1,4 @@
 zuul:
-  host:
-    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
-    socket-timeout-millis: 60000  #socket超时
   routes:
     aaaa:
       path: /myProduct/**
@@ -10,6 +7,11 @@ zuul:
 #    product: /myProduct/**
   ignored-patterns:
     - /**/product/listForOrder
+# 使用指定服务ip地址的超时配置
+  host:
+#    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+#    socket-timeout-millis: 60000  #socket超时
+# 使用服务Service发现的方式的超时配置
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
